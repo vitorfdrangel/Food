@@ -1,0 +1,66 @@
+.checkout_container {
+  padding: 0 2rem 1rem;
+}
+
+.checkout_container h1 {
+  margin: 1.2rem 0 2rem;
+  text-align: center;
+}
+
+.body_checkout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.box_container {
+  width: 100%;
+  min-height: 150px;
+  margin-bottom: 1.5rem;
+  padding: 1.2rem 1rem;
+  box-sizing: border-box;
+  border: 1px solid #e9e9e9;
+}
+
+.box_container h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.6rem;
+}
+
+.box_input {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+.box_input label {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.box_input span {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.box_input input,
+select {
+  padding: 0.5rem;
+  outline: none;
+  border: 1px solid #e9e9e9;
+}
+
+.box_input input::placeholder {
+  color: #acacac;
+}
+
+.checkout_values {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  margin: 1rem 0;
+}

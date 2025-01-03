@@ -1,0 +1,16 @@
+.menu_container {
+  text-align: center;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.subtitle {
+  max-width: 90%;
+  margin: 0 auto 1.5rem;
+  padding-bottom: 1.5rem;
+  font-size: 1.2rem;
+  color: #747474;
+}
