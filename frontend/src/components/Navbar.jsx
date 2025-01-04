@@ -10,18 +10,8 @@ import logo from "../images/logo.png";
 import classes from "./Navbar.module.css";
 import { MdOutlineShoppingBag } from "react-icons/md";
 
-const Navbar = () => {
+const Navbar = ({ showMenu }) => {
   const [openSidebar, setOpenSidebar] = useState(false);
-  const [showMenu, setShowMenu] = useState(true);
-
-  // mostrar / remover menu
-  addEventListener("showMenu", () => {
-    setShowMenu(true);
-  });
-
-  addEventListener("closeMenu", () => {
-    setShowMenu(false);
-  });
 
   return (
     <div className={classes.navbar_container}>

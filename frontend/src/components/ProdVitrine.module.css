@@ -1,4 +1,5 @@
 .prodVitrine_container {
+  padding: 0 6rem 6rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

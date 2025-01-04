@@ -1,5 +1,4 @@
 // components
-import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 import { ToastContainer } from "react-toastify";
@@ -12,10 +11,7 @@ function App() {
   return (
     <>
       <ToastContainer />
-      <Navbar />
-      <div className="container">
-        <Outlet />
-      </div>
+      <Outlet />
       <Footer />
     </>
   );
