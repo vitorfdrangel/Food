@@ -1,7 +1,9 @@
+// components
+import Navbar from "../components/Navbar.jsx";
+
 // hooks
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useSetMenu } from "../hooks/useShowMenu";
 import { useClearProductsLs } from "../hooks/useLocalStorage.jsx";
 import useToast from "../hooks/useToast.jsx";
 
@@ -15,9 +17,6 @@ import { CartContext } from "../context/CartContext.jsx";
 import classes from "./Checkout.module.css";
 
 const Checkout = () => {
-  // remover menu navbar
-  useSetMenu(false);
-
   // validar somente números
   const numValidator = (e) => {
     const num = e.keyCode || e.which;
@@ -75,108 +74,111 @@ const Checkout = () => {
   };
 
   return (
-    <div className={classes.checkout_container}>
-      <h1>Finalizar Pedido</h1>
+    <>
+      <Navbar showMenu={false} />
+      <div className={classes.checkout_container}>
+        <h1>Finalizar Pedido</h1>
 
-      <form onSubmit={sendOrder} className={classes.body_checkout}>
-        <div className={classes.box_container}>
-          <h3>Dados Pessoais</h3>
+        <form onSubmit={sendOrder} className={classes.body_checkout}>
+          <div className={classes.box_container}>
+            <h3>Dados Pessoais</h3>
 
-          <div className={classes.box_input}>
-            <label>
-              <span>Nome Completo</span>
-              <input
-                type="text"
-                placeholder="Digite seu nome completo"
-                required
-                onChange={(e) => setNome(e.target.value)}
-                value={nome}
-              />
-            </label>
+            <div className={classes.box_input}>
+              <label>
+                <span>Nome Completo</span>
+                <input
+                  type="text"
+                  placeholder="Digite seu nome completo"
+                  required
+                  onChange={(e) => setNome(e.target.value)}
+                  value={nome}
+                />
+              </label>
 
-            <label>
-              <span>E-mail</span>
-              <input
-                type="email"
-                placeholder="ex: usuario@gmail.com"
-                required
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
-              />
-            </label>
+              <label>
+                <span>E-mail</span>
+                <input
+                  type="email"
+                  placeholder="ex: usuario@gmail.com"
+                  required
+                  onChange={(e) => setEmail(e.target.value)}
+                  value={email}
+                />
+              </label>
 
-            <label>
-              <span>Celular</span>
-              <input
-                type="text"
-                placeholder="ex: 21983746536"
-                maxLength={11}
-                onKeyDown={(e) => numValidator(e)}
-                required
-                onChange={(e) => setFone(e.target.value)}
-                value={fone}
-              />
-            </label>
+              <label>
+                <span>Celular</span>
+                <input
+                  type="text"
+                  placeholder="ex: 21983746536"
+                  maxLength={11}
+                  onKeyDown={(e) => numValidator(e)}
+                  required
+                  onChange={(e) => setFone(e.target.value)}
+                  value={fone}
+                />
+              </label>
+            </div>
           </div>
-        </div>
 
-        <div className={classes.box_container}>
-          <h3>Endereço de Entrega</h3>
+          <div className={classes.box_container}>
+            <h3>Endereço de Entrega</h3>
 
-          <div className={classes.box_input}>
-            <label>
-              <span>Endereço</span>
-              <input
-                type="text"
-                placeholder="Digite seu endereço"
-                required
-                onChange={(e) => setEndereco(e.target.value)}
-                value={endereco}
-              />
-            </label>
+            <div className={classes.box_input}>
+              <label>
+                <span>Endereço</span>
+                <input
+                  type="text"
+                  placeholder="Digite seu endereço"
+                  required
+                  onChange={(e) => setEndereco(e.target.value)}
+                  value={endereco}
+                />
+              </label>
 
-            <label>
-              <span>Bairro</span>
-              <input
-                type="text"
-                placeholder="Digite seu bairro"
-                required
-                onChange={(e) => setBairro(e.target.value)}
-                value={bairro}
-              />
-            </label>
+              <label>
+                <span>Bairro</span>
+                <input
+                  type="text"
+                  placeholder="Digite seu bairro"
+                  required
+                  onChange={(e) => setBairro(e.target.value)}
+                  value={bairro}
+                />
+              </label>
 
-            <label>
-              <span>Cidade</span>
-              <input
-                type="text"
-                placeholder="Nome da sua Cidade"
-                required
-                onChange={(e) => setCidade(e.target.value)}
-                value={cidade}
-              />
-            </label>
+              <label>
+                <span>Cidade</span>
+                <input
+                  type="text"
+                  placeholder="Nome da sua Cidade"
+                  required
+                  onChange={(e) => setCidade(e.target.value)}
+                  value={cidade}
+                />
+              </label>
+            </div>
           </div>
-        </div>
 
-        <div className={classes.box_container}>
-          <h3>Dados do Pagamento</h3>
+          <div className={classes.box_container}>
+            <h3>Dados do Pagamento</h3>
 
-          <div className={classes.checkout_values}>
-            <p>Total</p>
-            <p>
-              {new Intl.NumberFormat("pt-BR", {
-                style: "currency",
-                currency: "BRL",
-              }).format(totalCart)}
-            </p>
+            <div className={classes.checkout_values}>
+              <p>Total</p>
+              <p>
+                {new Intl.NumberFormat("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                }).format(totalCart)}
+              </p>
+            </div>
+            <button type="submit" className="btn-checkout">
+              Finalizar Pedido
+            </button>
           </div>
-          <button type="submit" className="btn-checkout">
-            Finalizar Pedido
-          </button>
-        </div>
-      </form>
-    </div>
+        </form>
+      </div>
+    </>
   );
 };
 

@@ -1,8 +1,9 @@
+// components
+import Navbar from "../components/Navbar.jsx";
+import ProdVitrine from "../components/ProdVitrine";
+
 // hooks
 import { useSetMenu } from "../hooks/useShowMenu";
-
-// components
-import ProdVitrine from "../components/ProdVitrine";
 
 import classes from "./Home.module.css";
 
@@ -12,6 +13,7 @@ const Home = () => {
 
   return (
     <div>
+      <Navbar showMenu={true} />
       <div className={classes.menu_container}>
         <h1 className={classes.title}>Nosso Cardápio</h1>
         <p className={classes.subtitle}>

@@ -1,5 +1,5 @@
 .checkout_container {
-  padding: 0 2rem 1rem;
+  padding: 2rem 4rem 3rem;
 }
 
 .checkout_container h1 {
@@ -63,4 +63,21 @@ select {
   justify-content: space-between;
   font-weight: 600;
   margin: 1rem 0;
+}
+
+/* responsividade */
+/* tablet */
+@media (min-width: 750px) {
+  .box_container {
+    width: 80%;
+    max-width: 600px;
+  }
+}
+
+/* laptop / pc */
+@media (min-width: 1000px) {
+  .box_container {
+    width: 70%;
+    max-width: 800px;
+  }
 }

@@ -1,6 +1,6 @@
 .historic_container {
   margin-bottom: 3rem;
-  padding: 0.5rem 0.4rem 3rem;
+  padding: 2rem 4rem 3rem;
 }
 
 .historic_container h1 {
@@ -30,4 +30,24 @@
 }
 .table_historic .value_hist {
   color: #e84f3d;
+}
+
+/* responsividade */
+/* tablet */
+@media (min-width: 750px) {
+  .table_historic {
+    width: 60%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 1rem 1rem 2rem;
+  }
+}
+
+/* laptop / pc */
+@media (min-width: 1000px) {
+  .table_historic {
+    width: 70%;
+    max-width: 900px;
+    margin: 0 auto;
+  }
 }

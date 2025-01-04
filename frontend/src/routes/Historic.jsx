@@ -1,6 +1,8 @@
+// components
+import Navbar from "../components/Navbar.jsx";
+
 // hooks
 import { useEffect, useState } from "react";
-import { useSetMenu } from "../hooks/useShowMenu";
 
 // api
 import api from "../services/api.js";
@@ -23,32 +25,32 @@ const Historic = () => {
       });
   }, []);
 
-  // mostrar menu navbar
-  useSetMenu(true);
-
   return (
-    <div className={classes.historic_container}>
-      <h1>Histórico de Pedidos</h1>
-      {hist.length == 0 && <h3>Você não tem pedidos!</h3>}
-      {hist.length != 0 && (
-        <table className={classes.table_historic}>
-          {hist.map((order) => (
-            <tbody key={order.ID_PEDIDO}>
-              <td>
-                <strong>{order.ID_PEDIDO}</strong>
-              </td>
-              <td className={classes.date_hist}>{order.DT_PEDIDO}</td>
-              <td className={classes.value_hist}>
-                {new Intl.NumberFormat("pt-BR", {
-                  style: "currency",
-                  currency: "BRL",
-                }).format(order.TOTAL)}
-              </td>
-            </tbody>
-          ))}
-        </table>
-      )}
-    </div>
+    <>
+      <Navbar showMenu={true} />
+      <div className={classes.historic_container}>
+        <h1>Histórico de Pedidos</h1>
+        {hist.length == 0 && <h3>Você não tem pedidos!</h3>}
+        {hist.length != 0 && (
+          <table className={classes.table_historic}>
+            {hist.map((order) => (
+              <tbody key={order.ID_PEDIDO}>
+                <td>
+                  <strong>{order.ID_PEDIDO}</strong>
+                </td>
+                <td className={classes.date_hist}>{order.DT_PEDIDO}</td>
+                <td className={classes.value_hist}>
+                  {new Intl.NumberFormat("pt-BR", {
+                    style: "currency",
+                    currency: "BRL",
+                  }).format(order.TOTAL)}
+                </td>
+              </tbody>
+            ))}
+          </table>
+        )}
+      </div>
+    </>
   );
 };
 

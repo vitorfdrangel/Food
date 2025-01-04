@@ -1,4 +1,5 @@
 .prodVitrine_container {
+  padding: 0 6rem 6rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -55,4 +56,57 @@
 
 .prod_box button svg {
   margin-right: 5px;
+}
+
+/* responsividade */
+
+/* tablet */
+@media (min-width: 750px) {
+  .prod_box {
+    width: 200px;
+    height: 420px;
+  }
+
+  .prod_box img {
+    width: 130px;
+    height: 110px;
+  }
+
+  .description {
+    font-size: 0.8rem;
+  }
+
+  .price {
+    font-size: 1.2rem;
+  }
+
+  .prod_box button {
+    width: 70%;
+  }
+}
+
+/* laptop / pc */
+@media (min-width: 1000px) {
+  .prod_box {
+    width: 230px;
+    height: 420px;
+  }
+
+  .prod_box img {
+    width: 150px;
+    height: 130px;
+  }
+
+  .description {
+    margin-top: 0.4rem;
+    font-size: 1.1rem;
+  }
+
+  .price {
+    padding-top: 3.5rem;
+  }
+
+  .prod_box button {
+    margin-top: 1rem;
+  }
 }
