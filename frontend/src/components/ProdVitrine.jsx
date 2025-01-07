@@ -38,7 +38,7 @@ const ProdVitrine = ({ filter }) => {
 
   // filtrar produtos
   useEffect(() => {
-    let fdt;
+    let fProds;
 
     switch (filter) {
       case "todos":
@@ -46,21 +46,18 @@ const ProdVitrine = ({ filter }) => {
         break;
 
       case "BG":
-        fdt = data.filter((item) => item.TIPO == "BG");
-        setFilteredData(fdt);
+        fProds = data.filter((item) => item.TIPO == "BG");
+        setFilteredData(fProds);
         break;
 
       case "AC":
-        fdt = data.filter((item) => item.TIPO == "AC");
-        setFilteredData(fdt);
+        fProds = data.filter((item) => item.TIPO == "AC");
+        setFilteredData(fProds);
         break;
 
       case "DK":
-        fdt = data.filter((item) => item.TIPO == "DK");
-        setFilteredData(fdt);
-        break;
-
-      default:
+        fProds = data.filter((item) => item.TIPO == "DK");
+        setFilteredData(fProds);
         break;
     }
   }, [filter, data]);

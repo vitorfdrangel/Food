@@ -19,19 +19,11 @@ const Home = () => {
           Clique em adicionar para colocar os produtos na sacola de compras. Se
           preferir, você pode pedir pelo nosso WhatsApp: (21) 98123-3465
         </p>
-        <div>
-          <button className={classes.filter} onClick={() => setFilter("todos")}>
-            Todos
-          </button>
-          <button className={classes.filter} onClick={() => setFilter("BG")}>
-            Hambúrgueres
-          </button>
-          <button className={classes.filter} onClick={() => setFilter("AC")}>
-            Acompanhamentos
-          </button>
-          <button className={classes.filter} onClick={() => setFilter("DK")}>
-            Bebidas
-          </button>
+        <div className={classes.filter_container}>
+          <button onClick={() => setFilter("todos")}>Todos</button>
+          <button onClick={() => setFilter("BG")}>Hambúrgueres</button>
+          <button onClick={() => setFilter("AC")}>Acompanhamentos</button>
+          <button onClick={() => setFilter("DK")}>Bebidas</button>
         </div>
       </div>
       <ProdVitrine filter={filter} />
