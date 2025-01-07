@@ -13,8 +13,9 @@ import { FaBagShopping } from "react-icons/fa6";
 
 import { BiLoaderCircle } from "react-icons/bi";
 
-const ProdVitrine = () => {
+const ProdVitrine = ({ filter }) => {
   const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
 
   // Listar Produtos
   useEffect(() => {
@@ -35,11 +36,40 @@ const ProdVitrine = () => {
     useToast("sucesso", "Produto adicionado!");
   };
 
+  // filtrar produtos
+  useEffect(() => {
+    let fdt;
+
+    switch (filter) {
+      case "todos":
+        setFilteredData(data);
+        break;
+
+      case "BG":
+        fdt = data.filter((item) => item.TIPO == "BG");
+        setFilteredData(fdt);
+        break;
+
+      case "AC":
+        fdt = data.filter((item) => item.TIPO == "AC");
+        setFilteredData(fdt);
+        break;
+
+      case "DK":
+        fdt = data.filter((item) => item.TIPO == "DK");
+        setFilteredData(fdt);
+        break;
+
+      default:
+        break;
+    }
+  }, [filter, data]);
+
   return (
     <div className={classes.prodVitrine_container}>
       {data.length === 0 && <BiLoaderCircle className={classes.spinner} />}
       {data.length !== 0 &&
-        data.map((prod) => (
+        filteredData.map((prod) => (
           <div className={classes.prod_box} key={prod.ID_PRODUTO}>
             <img src={prod.FOTO} alt={prod.NOME} />
             <h2>{prod.NOME}</h2>
