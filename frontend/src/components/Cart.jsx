@@ -109,7 +109,7 @@ const Cart = ({ openSidebar, setOpenSidebar }) => {
                   <div className={classes.qtd_btn}>
                     <button
                       onClick={() => setBtn("-", order)}
-                      className={order.QTD === 1 ? "gray" : ""}
+                      className={order.QTD === 1 ? classes.gray : ""}
                     >
                       -
                     </button>

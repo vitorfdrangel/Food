@@ -10,8 +10,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // routes
 import Home from "./routes/Home.jsx";
+import Cardapio from "./routes/Cardapio.jsx";
 import Checkout from "./routes/Checkout.jsx";
-import Historic from "./routes/Historic.jsx";
 
 const route = createBrowserRouter([
   {
@@ -23,12 +23,12 @@ const route = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/checkout",
-        element: <Checkout />,
+        path: "/cardapio",
+        element: <Cardapio />,
       },
       {
-        path: "/historico",
-        element: <Historic />,
+        path: "/checkout",
+        element: <Checkout />,
       },
     ],
   },
