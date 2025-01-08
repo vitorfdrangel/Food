@@ -65,6 +65,10 @@
   border: 1px solid #ccc;
 }
 
+.qtd_btn .gray {
+  color: #d8d8d8;
+}
+
 .cart_container .product_price {
   padding-top: 10px;
   text-align: right;

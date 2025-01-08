@@ -21,7 +21,8 @@ const Navbar = ({ showMenu }) => {
 
       {showMenu && (
         <div className={classes.menu}>
-          <Link to={"/historico"}>Histórico</Link>
+          <Link to={"/"}>Início</Link>
+          <Link to={"/cardapio"}>Cardápio</Link>
           <button className="btn btn-red" onClick={() => setOpenSidebar(true)}>
             <MdOutlineShoppingBag />
             <p>Sacola</p>

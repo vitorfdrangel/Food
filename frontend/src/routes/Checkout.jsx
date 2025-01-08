@@ -66,7 +66,7 @@ const Checkout = () => {
       .then(() => {
         useClearProductsLs();
         useToast("sucesso", "Pedido enviado!");
-        navigate("/historico");
+        navigate("/");
       })
       .catch(() => {
         useToast("erro", "Não foi possível enviar o pedido.");
