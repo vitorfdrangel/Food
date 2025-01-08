@@ -1,5 +1,6 @@
-.menu_container {
-  padding: 2rem 4rem 3rem;
+.cardapio_container {
+  margin-bottom: 2.5rem;
+  padding: 2rem 4rem 0;
   text-align: center;
 }
 
@@ -66,6 +67,6 @@
   }
 
   .filter_container {
-    gap: 0.8rem;
+    gap: 1rem;
   }
 }

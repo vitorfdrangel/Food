@@ -13,7 +13,7 @@ const Cardapio = () => {
   return (
     <>
       <Navbar showMenu={true} />
-      <div className={classes.menu_container}>
+      <div className={classes.cardapio_container}>
         <h1 className={classes.title}>Nosso Cardápio</h1>
         <p className={classes.subtitle}>
           Clique em adicionar para colocar os produtos na sacola de compras. Se
