@@ -16,10 +16,6 @@ const Carrosel = ({ images }) => {
     setIndex((prevIndex) => (prevIndex - 1) % images.length);
   };
 
-  // useEffect(() => {
-  //   setInterval(goToNext, 3500);
-  // }, []);
-
   return (
     <div className={classes.carrosel_container}>
       <GrPrevious onClick={goToPrev} className={classes.btn} />
