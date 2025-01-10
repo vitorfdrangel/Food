@@ -1,34 +1,29 @@
+// hooks
 import { useState, useEffect } from "react";
 
 import { GrPrevious, GrNext } from "react-icons/gr";
-
+// style
 import classes from "./Carrosel.module.css";
 
 const Carrosel = ({ images }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [index, setIndex] = useState(0);
 
   const goToNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    setIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
   const goToPrev = () => {
-    setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + images.length) % images.length
-    );
+    setIndex((prevIndex) => (prevIndex - 1) % images.length);
   };
 
-  useEffect(() => {
-    setInterval(goToNext, 3500);
-  }, []);
+  // useEffect(() => {
+  //   setInterval(goToNext, 3500);
+  // }, []);
 
   return (
     <div className={classes.carrosel_container}>
       <GrPrevious onClick={goToPrev} className={classes.btn} />
-      <img
-        src={images[currentIndex]}
-        alt="carrosel"
-        className={classes.images}
-      />
+      <img src={images[index]} alt="carrosel" className={classes.images} />
       <GrNext onClick={goToNext} className={classes.btn} />
     </div>
   );
