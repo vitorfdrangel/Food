@@ -1,6 +1,5 @@
 .home_container {
   margin-top: -2.5rem;
-  height: 100vh;
   text-align: center;
 }
 
@@ -11,6 +10,7 @@
 }
 
 .prod_container {
+  margin-bottom: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,6 +31,11 @@
   height: 130px;
 }
 
+.prod_box h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 1.5rem;
+}
 .description {
   height: 100px;
   margin-top: 0.6rem;
@@ -53,4 +58,20 @@
 
 .prod_box button svg {
   margin-right: 5px;
+}
+
+.home_container a {
+  margin-right: 18rem;
+  font-size: 1.3rem;
+  color: #e84f3d;
+  float: right;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0.8;
+  transition: 0.2s;
+}
+
+.home_container a:hover {
+  opacity: 1;
 }

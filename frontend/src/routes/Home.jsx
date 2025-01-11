@@ -4,8 +4,10 @@ import Slider from "../components/Slider.jsx";
 
 //hooks
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import { FaBagShopping } from "react-icons/fa6";
+import { GrLinkNext } from "react-icons/gr";
 import { BiLoaderCircle } from "react-icons/bi";
 
 import api from "../services/api.js";
@@ -28,6 +30,10 @@ const Home = () => {
       });
   }, []);
 
+  const goUp = () => {
+    window.scrollTo({ top: 0 });
+  };
+
   return (
     <>
       <Navbar showMenu={true} />
@@ -35,7 +41,7 @@ const Home = () => {
         <div>
           <Slider />
         </div>
-        <h2>Os mais pedidos</h2>
+        <h2>Mais pedidos</h2>
         <div className={classes.prod_container}>
           {data.length > 0 &&
             data.slice(0, 5).map((prod) => (
@@ -61,7 +67,9 @@ const Home = () => {
               </div>
             ))}
         </div>
-        <p>Confira nosso Cardápio</p>
+        <Link to={"/cardapio"} onClick={goUp}>
+          Confira nosso cardápio <GrLinkNext />
+        </Link>
       </div>
     </>
   );
