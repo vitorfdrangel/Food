@@ -1,30 +1,22 @@
 // components
 import Navbar from "../components/Navbar.jsx";
-import Carrosel from "../components/Carrosel.jsx";
+import Slider from "../components/Slider.jsx";
 
 //hooks
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import { FaBagShopping } from "react-icons/fa6";
+import { GrLinkNext } from "react-icons/gr";
 import { BiLoaderCircle } from "react-icons/bi";
 
 import api from "../services/api.js";
-
-// images
-import img1 from "../images/img1.jpg";
-import img2 from "../images/img2.jpg";
-import img3 from "../images/img3.jpg";
-import img4 from "../images/img4.jpg";
-import img5 from "../images/img5.jpg";
-import img6 from "../images/img6.jpg";
 
 // style
 import classes from "./Home.module.css";
 
 const Home = () => {
   const [data, setData] = useState([]);
-
-  const images = [img1, img2, img3, img4, img5, img6];
 
   // listar produtos
   useEffect(() => {
@@ -38,14 +30,18 @@ const Home = () => {
       });
   }, []);
 
+  const goUp = () => {
+    window.scrollTo({ top: 0 });
+  };
+
   return (
     <>
       <Navbar showMenu={true} />
       <div className={classes.home_container}>
         <div>
-          <Carrosel images={images} />
+          <Slider />
         </div>
-        <h2>Os mais pedidos</h2>
+        <h2>Mais pedidos</h2>
         <div className={classes.prod_container}>
           {data.length > 0 &&
             data.slice(0, 5).map((prod) => (
@@ -71,7 +67,9 @@ const Home = () => {
               </div>
             ))}
         </div>
-        <p>Confira nosso Cardápio</p>
+        <Link to={"/cardapio"} onClick={goUp}>
+          Confira nosso cardápio <GrLinkNext />
+        </Link>
       </div>
     </>
   );
