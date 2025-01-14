@@ -18,12 +18,7 @@ const Slider = () => {
 
   return (
     <div className={classes.slider_container}>
-      <Swiper
-        effect="fade"
-        slidesPerView={1}
-        pagination={{ clickable: true }}
-        navigation
-      >
+      <Swiper slidesPerView={1} pagination={{ clickable: true }} navigation>
         {images.map((item) => (
           <SwiperSlide key={item.id}>
             <img src={item.image} alt="Slider" className={classes.slide_item} />
