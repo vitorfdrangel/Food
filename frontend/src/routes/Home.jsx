@@ -43,6 +43,7 @@ const Home = () => {
         </div>
         <h2>Mais pedidos</h2>
         <div className={classes.prod_container}>
+          {data.length == 0 && <BiLoaderCircle className={classes.spinner} />}
           {data.length > 0 &&
             data.slice(0, 5).map((prod) => (
               <div className={classes.prod_box} key={prod.ID_PRODUTO}>
