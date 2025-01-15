@@ -60,6 +60,11 @@ const ProdVitrine = () => {
         fProds = data.filter((item) => item.TIPO == "DK");
         setFilteredData(fProds);
         break;
+
+      case "SB":
+        fProds = data.filter((item) => item.TIPO == "SB");
+        setFilteredData(fProds);
+        break;
     }
   }, [filter, data]);
 
@@ -91,6 +96,12 @@ const ProdVitrine = () => {
               className={filter === "DK" ? classes.target : ""}
             >
               Bebidas
+            </button>
+            <button
+              onClick={() => setFilter("SB")}
+              className={filter === "SB" ? classes.target : ""}
+            >
+              Sobremesas
             </button>
           </div>
         )}
