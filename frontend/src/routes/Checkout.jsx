@@ -17,6 +17,9 @@ import { CartContext } from "../context/CartContext.jsx";
 import classes from "./Checkout.module.css";
 
 const Checkout = () => {
+  const [money, setMoney] = useState(false);
+  const [troco, setTroco] = useState(false);
+
   // validar somente números
   const numValidator = (e) => {
     const num = e.keyCode || e.which;
@@ -162,6 +165,63 @@ const Checkout = () => {
 
           <div className={classes.box_container}>
             <h3>Dados do Pagamento</h3>
+
+            <div className={classes.payment}>
+              <label>
+                <input
+                  type="radio"
+                  name="payment"
+                  id="dinheiro"
+                  onClick={() => setMoney(true)}
+                />
+                <p>Dinheiro</p>
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="payment"
+                  id="cartao"
+                  onClick={() => setMoney(false)}
+                />
+                <p>Cartão</p>
+              </label>
+            </div>
+
+            {money && (
+              <div>
+                <p>Precisa de troco?</p>
+                <div>
+                  <label>
+                    <input
+                      type="radio"
+                      name="troco"
+                      id="sim"
+                      onClick={() => setTroco(true)}
+                    />
+                    Sim
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      name="troco"
+                      id="nao"
+                      onClick={() => setTroco(false)}
+                    />
+                    Não
+                  </label>
+                </div>
+              </div>
+            )}
+
+            {troco && (
+              <div>
+                <input
+                  type="text"
+                  placeholder="troco para"
+                  onKeyDown={(e) => numValidator(e)}
+                />
+              </div>
+            )}
 
             <div className={classes.checkout_values}>
               <p>Total</p>

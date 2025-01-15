@@ -58,6 +58,23 @@ select {
   color: #acacac;
 }
 
+.payment {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.payment label {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.payment label input {
+  width: 20px;
+  height: 20px;
+  margin-top: -1px;
+}
+
 .checkout_values {
   display: flex;
   justify-content: space-between;
