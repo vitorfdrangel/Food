@@ -3,9 +3,6 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
 
-// context
-import { CartContextProvider } from "./context/CartContext.jsx";
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // routes
@@ -36,8 +33,6 @@ const route = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <CartContextProvider>
-      <RouterProvider router={route} />
-    </CartContextProvider>
+    <RouterProvider router={route} />
   </StrictMode>
 );

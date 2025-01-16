@@ -2,21 +2,23 @@
 import Navbar from "../components/Navbar.jsx";
 
 // hooks
-import { useContext, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useClearProductsLs } from "../hooks/useLocalStorage.jsx";
+import {
+  useGetProductsLs,
+  useClearProductsLs,
+} from "../hooks/useLocalStorage.jsx";
 import useToast from "../hooks/useToast.jsx";
 
 // api
 import api from "../services/api.js";
 
-// context
-import { CartContext } from "../context/CartContext.jsx";
-
 // style
 import classes from "./Checkout.module.css";
 
 const Checkout = () => {
+  const [dadosCart, setDadosCart] = useState([]);
+  const [totalCart, setTotalCart] = useState();
   const [money, setMoney] = useState(false);
   const [troco, setTroco] = useState(false);
 
@@ -35,10 +37,26 @@ const Checkout = () => {
     }
   };
 
+  // navigate
   const navigate = useNavigate();
 
-  // context
-  const { dadosCart, totalCart } = useContext(CartContext);
+  // get produtos
+  useEffect(() => {
+    const prodsLs = useGetProductsLs();
+
+    let smTotal = 0;
+
+    if (prodsLs.length != 0) {
+      prodsLs.map((order) => {
+        const price = order.PRECO * order.QTD;
+
+        smTotal = smTotal + price;
+      });
+    }
+
+    setDadosCart(prodsLs);
+    setTotalCart(smTotal);
+  }, []);
 
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
