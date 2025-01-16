@@ -76,6 +76,15 @@ const Checkout = () => {
       });
   };
 
+  const handlePayment = (e) => {
+    if (e.target.id == "dinheiro") {
+      setMoney(true);
+    } else if (e.target.id == "cartao") {
+      setMoney(false);
+      setTroco(false);
+    }
+  };
+
   return (
     <>
       <Navbar showMenu={false} />
@@ -84,7 +93,7 @@ const Checkout = () => {
 
         <form onSubmit={sendOrder} className={classes.body_checkout}>
           <div className={classes.box_container}>
-            <h3>Dados Pessoais</h3>
+            <h2>Dados Pessoais</h2>
 
             <div className={classes.box_input}>
               <label>
@@ -125,7 +134,7 @@ const Checkout = () => {
           </div>
 
           <div className={classes.box_container}>
-            <h3>Endereço de Entrega</h3>
+            <h2>Endereço de Entrega</h2>
 
             <div className={classes.box_input}>
               <label>
@@ -164,64 +173,66 @@ const Checkout = () => {
           </div>
 
           <div className={classes.box_container}>
-            <h3>Dados do Pagamento</h3>
-
+            <h2>Dados do Pagamento</h2>
             <div className={classes.payment}>
-              <label>
-                <input
-                  type="radio"
-                  name="payment"
-                  id="dinheiro"
-                  onClick={() => setMoney(true)}
-                />
-                <p>Dinheiro</p>
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  name="payment"
-                  id="cartao"
-                  onClick={() => setMoney(false)}
-                />
-                <p>Cartão</p>
-              </label>
-            </div>
+              <p>Escolha a forma de pagamento:</p>
+              <div className={classes.box_payment}>
+                <label>
+                  <input
+                    type="radio"
+                    name="payment"
+                    id="dinheiro"
+                    onClick={(e) => handlePayment(e)}
+                  />
+                  <span>Dinheiro</span>
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="payment"
+                    id="cartao"
+                    onClick={(e) => handlePayment(e)}
+                  />
+                  <span>Cartão</span>
+                </label>
+              </div>
 
-            {money && (
-              <div>
-                <p>Precisa de troco?</p>
-                <div>
-                  <label>
-                    <input
-                      type="radio"
-                      name="troco"
-                      id="sim"
-                      onClick={() => setTroco(true)}
-                    />
-                    Sim
-                  </label>
-                  <label>
-                    <input
-                      type="radio"
-                      name="troco"
-                      id="nao"
-                      onClick={() => setTroco(false)}
-                    />
-                    Não
-                  </label>
+              {money && (
+                <div className={classes.box_troco}>
+                  <p>Precisa de troco?</p>
+                  <div className={classes.box_payment}>
+                    <label>
+                      <input
+                        type="radio"
+                        name="troco"
+                        id="sim"
+                        onClick={() => setTroco(true)}
+                      />
+                      <span>Sim</span>
+                    </label>
+                    <label>
+                      <input
+                        type="radio"
+                        name="troco"
+                        id="nao"
+                        onClick={() => setTroco(false)}
+                      />
+                      <span>Não</span>
+                    </label>
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
 
-            {troco && (
-              <div>
-                <input
-                  type="text"
-                  placeholder="troco para"
-                  onKeyDown={(e) => numValidator(e)}
-                />
-              </div>
-            )}
+              {troco && (
+                <div className={classes.troco}>
+                  <input
+                    type="text"
+                    placeholder="ex: 50"
+                    onKeyDown={(e) => numValidator(e)}
+                  />
+                </div>
+              )}
+            </div>
 
             <div className={classes.checkout_values}>
               <p>Total</p>
