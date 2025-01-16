@@ -38,7 +38,7 @@ const Checkout = () => {
   const navigate = useNavigate();
 
   // context
-  const { totalCart, dadosCart } = useContext(CartContext);
+  const { dadosCart, totalCart } = useContext(CartContext);
 
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
