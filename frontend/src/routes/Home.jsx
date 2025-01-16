@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar.jsx";
 import Slider from "../components/Slider.jsx";
 
 //hooks
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 import { FaBagShopping } from "react-icons/fa6";
