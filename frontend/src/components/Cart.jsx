@@ -13,6 +13,7 @@ import { Dock } from "react-dock";
 // Style
 import classes from "./Cart.module.css";
 import { MdOutlineClose } from "react-icons/md";
+import { BiCart } from "react-icons/bi";
 
 const Cart = ({ openSidebar, setOpenSidebar }) => {
   const [orders, setOrders] = useState([]);
@@ -86,12 +87,18 @@ const Cart = ({ openSidebar, setOpenSidebar }) => {
       }}
     >
       <div className={classes.cart_container}>
-        <MdOutlineClose onClick={() => setOpenSidebar(false)} />
+        <MdOutlineClose
+          className={classes.close_sb}
+          onClick={() => setOpenSidebar(false)}
+        />
         <h1>Meu Pedido</h1>
 
         <div className={classes.product_container}>
           {orders.length === 0 ? (
-            <p className={classes.void_cart}>Seu carrinho está vazio!</p>
+            <div className={classes.void_cart}>
+              <p>Seu carrinho está vazio!</p>
+              <BiCart className={classes.void_svg} />
+            </div>
           ) : (
             orders.map((order) => (
               <div className={classes.product} key={order.ID_PRODUTO}>

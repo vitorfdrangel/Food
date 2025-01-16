@@ -3,7 +3,7 @@
   text-align: center;
 }
 
-.cart_container svg {
+.cart_container .close_sb {
   position: absolute;
   top: 1.5rem;
   right: 2.5rem;
@@ -12,7 +12,7 @@
   transition: 0.2s;
 }
 
-.cart_container svg:hover {
+.cart_container .close_sb:hover {
   opacity: 0.6;
 }
 
@@ -21,9 +21,15 @@
   overflow: auto;
 }
 
-.product_container .void_cart {
-  margin-top: 80%;
+.void_cart p {
+  margin: 20% 0 45%;
   font-size: 1.3rem;
+}
+
+.void_cart .void_svg {
+  width: 180px;
+  height: auto;
+  opacity: 0.6;
 }
 
 .cart_container .product {

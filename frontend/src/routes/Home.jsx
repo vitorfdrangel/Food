@@ -56,15 +56,7 @@ const Home = () => {
                     currency: "BRL",
                   }).format(prod.PRECO)}
                 </p>
-                <div>
-                  <button
-                    className="btn btn-cart"
-                    onClick={() => saveOrder(prod)}
-                  >
-                    <FaBagShopping />
-                    <span>Adicionar</span>
-                  </button>
-                </div>
+                <div></div>
               </div>
             ))}
         </div>
