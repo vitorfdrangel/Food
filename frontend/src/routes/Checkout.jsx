@@ -2,21 +2,26 @@
 import Navbar from "../components/Navbar.jsx";
 
 // hooks
-import { useContext, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useClearProductsLs } from "../hooks/useLocalStorage.jsx";
+import {
+  useGetProductsLs,
+  useClearProductsLs,
+} from "../hooks/useLocalStorage.jsx";
 import useToast from "../hooks/useToast.jsx";
 
 // api
 import api from "../services/api.js";
 
-// context
-import { CartContext } from "../context/CartContext.jsx";
-
 // style
 import classes from "./Checkout.module.css";
 
 const Checkout = () => {
+  const [dadosCart, setDadosCart] = useState([]);
+  const [totalCart, setTotalCart] = useState();
+  const [money, setMoney] = useState(false);
+  const [troco, setTroco] = useState(false);
+
   // validar somente números
   const numValidator = (e) => {
     const num = e.keyCode || e.which;
@@ -32,10 +37,26 @@ const Checkout = () => {
     }
   };
 
+  // navigate
   const navigate = useNavigate();
 
-  // context
-  const { totalCart, dadosCart } = useContext(CartContext);
+  // get produtos
+  useEffect(() => {
+    const prodsLs = useGetProductsLs();
+
+    let smTotal = 0;
+
+    if (prodsLs.length != 0) {
+      prodsLs.map((order) => {
+        const price = order.PRECO * order.QTD;
+
+        smTotal = smTotal + price;
+      });
+    }
+
+    setDadosCart(prodsLs);
+    setTotalCart(smTotal);
+  }, []);
 
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
@@ -73,6 +94,15 @@ const Checkout = () => {
       });
   };
 
+  const handlePayment = (e) => {
+    if (e.target.id == "dinheiro") {
+      setMoney(true);
+    } else if (e.target.id == "cartao") {
+      setMoney(false);
+      setTroco(false);
+    }
+  };
+
   return (
     <>
       <Navbar showMenu={false} />
@@ -81,7 +111,7 @@ const Checkout = () => {
 
         <form onSubmit={sendOrder} className={classes.body_checkout}>
           <div className={classes.box_container}>
-            <h3>Dados Pessoais</h3>
+            <h2>Dados Pessoais</h2>
 
             <div className={classes.box_input}>
               <label>
@@ -122,7 +152,7 @@ const Checkout = () => {
           </div>
 
           <div className={classes.box_container}>
-            <h3>Endereço de Entrega</h3>
+            <h2>Endereço de Entrega</h2>
 
             <div className={classes.box_input}>
               <label>
@@ -161,7 +191,66 @@ const Checkout = () => {
           </div>
 
           <div className={classes.box_container}>
-            <h3>Dados do Pagamento</h3>
+            <h2>Dados do Pagamento</h2>
+            <div className={classes.payment}>
+              <p>Escolha a forma de pagamento:</p>
+              <div className={classes.box_payment}>
+                <label>
+                  <input
+                    type="radio"
+                    name="payment"
+                    id="dinheiro"
+                    onClick={(e) => handlePayment(e)}
+                  />
+                  <span>Dinheiro</span>
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="payment"
+                    id="cartao"
+                    onClick={(e) => handlePayment(e)}
+                  />
+                  <span>Cartão</span>
+                </label>
+              </div>
+
+              {money && (
+                <div className={classes.box_troco}>
+                  <p>Precisa de troco?</p>
+                  <div className={classes.box_payment}>
+                    <label>
+                      <input
+                        type="radio"
+                        name="troco"
+                        id="sim"
+                        onClick={() => setTroco(true)}
+                      />
+                      <span>Sim</span>
+                    </label>
+                    <label>
+                      <input
+                        type="radio"
+                        name="troco"
+                        id="nao"
+                        onClick={() => setTroco(false)}
+                      />
+                      <span>Não</span>
+                    </label>
+                  </div>
+                </div>
+              )}
+
+              {troco && (
+                <div className={classes.troco}>
+                  <input
+                    type="text"
+                    placeholder="ex: 50"
+                    onKeyDown={(e) => numValidator(e)}
+                  />
+                </div>
+              )}
+            </div>
 
             <div className={classes.checkout_values}>
               <p>Total</p>

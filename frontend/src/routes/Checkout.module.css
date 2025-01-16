@@ -24,8 +24,7 @@
   border: 1px solid #e9e9e9;
 }
 
-.box_container h3 {
-  font-size: 1.2rem;
+.box_container h2 {
   margin-bottom: 0.6rem;
 }
 
@@ -55,6 +54,44 @@ select {
 }
 
 .box_input input::placeholder {
+  color: #acacac;
+}
+
+.payment p {
+  margin-top: 1rem;
+}
+
+.box_payment {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.box_payment label {
+  margin-top: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.box_payment label input {
+  width: 18px;
+  height: 18px;
+  margin-top: -2px;
+}
+
+.box_troco p {
+  margin-bottom: 0.4rem;
+}
+
+.troco input {
+  width: 60px;
+  margin-top: 0.6rem;
+  padding: 0.5rem;
+  outline: none;
+  border: 1px solid #e9e9e9;
+}
+
+.troco input::placeholder {
   color: #acacac;
 }
 

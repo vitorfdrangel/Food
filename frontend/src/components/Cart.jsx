@@ -1,13 +1,11 @@
 // hooks
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+// save local storage
 import {
   useGetProductsLs,
   useDeleteProductsLs,
 } from "../hooks/useLocalStorage";
-import { useNavigate } from "react-router-dom";
-
-// context
-import { CartContext } from "../context/CartContext.jsx";
 
 // sidebar
 import { Dock } from "react-dock";
@@ -33,21 +31,21 @@ const Cart = ({ openSidebar, setOpenSidebar }) => {
   // somar valor total do carrinho
   useEffect(() => {
     const somaTotal = () => {
-      let smtotal = 0;
+      let smTotal = 0;
 
       if (orders.length != 0) {
         orders.map((order) => {
           const price = order.PRECO * order.QTD;
 
-          smtotal = smtotal + price;
+          smTotal = smTotal + price;
         });
       }
 
-      setTotal(smtotal);
+      setTotal(smTotal);
     };
 
     somaTotal();
-  }, [orders, openSidebar]);
+  }, [orders]);
 
   // finalizar pedido
   const finalizeOrder = () => {
@@ -76,12 +74,6 @@ const Cart = ({ openSidebar, setOpenSidebar }) => {
       localStorage.setItem("products", JSON.stringify(products));
     });
   };
-
-  // context
-  const { setTotalCart, setDadosCart } = useContext(CartContext);
-
-  setTotalCart(total);
-  setDadosCart(orders);
 
   return (
     <Dock
