@@ -1,6 +1,7 @@
 // components
 import Navbar from "../components/Navbar.jsx";
 import Slider from "../components/Slider.jsx";
+import SliderProds from "../components/SliderProds.jsx";
 
 //hooks
 import { useState, useEffect, useRef } from "react";
@@ -56,13 +57,14 @@ const Home = () => {
                     currency: "BRL",
                   }).format(prod.PRECO)}
                 </p>
-                <div></div>
               </div>
             ))}
         </div>
         <Link to={"/cardapio"} onClick={goUp}>
           Confira nosso cardápio <GrLinkNext />
         </Link>
+
+        <SliderProds />
       </div>
     </>
   );
