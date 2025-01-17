@@ -6,7 +6,7 @@
 
 .swiper {
   width: 70%;
-  height: 450px;
+  height: 410px;
   margin-top: 3rem;
 }
 .slider_box {
@@ -25,23 +25,15 @@
 }
 
 .container .slider_box h2 {
-  margin-top: 15px;
-  padding-top: 15px;
+  height: 30px;
+  margin: 5px 0 3rem;
+  padding-top: 5px;
   font-size: 1.4rem;
 }
 
 .container .description {
-  height: 100px;
   margin-top: 0.6rem;
   padding: 0 10px;
   font-size: 1rem;
   color: #acacac;
-}
-
-.price {
-  padding-top: 2.5rem;
-  font-size: 1.4rem;
-  font-weight: bold;
-  line-height: 1rem;
-  color: #e84f3d;
 }

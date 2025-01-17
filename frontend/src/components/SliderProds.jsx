@@ -1,25 +1,8 @@
-import { useEffect, useState } from "react";
-
 import { Swiper, SwiperSlide } from "swiper/react";
-
-import api from "../services/api.js";
 
 import classes from "./SliderProds.module.css";
 
-const SliderProds = () => {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    api
-      .get("/produtos")
-      .then((res) => {
-        setData(res.data);
-      })
-      .catch((err) => {
-        alert("Erro ao carregar produtos");
-      });
-  }, []);
-
+const SliderProds = ({ data }) => {
   return (
     <div className={classes.container}>
       <Swiper
@@ -31,8 +14,8 @@ const SliderProds = () => {
           <SwiperSlide key={prod.ID_PRODUTO}>
             <div className={classes.slider_box}>
               <img src={prod.FOTO} alt={prod.NOME} />
-              <p className={classes.description}>{prod.DESCRICAO}</p>
               <h2>{prod.NOME}</h2>
+              <p className={classes.description}>{prod.DESCRICAO}</p>
             </div>
           </SwiperSlide>
         ))}
