@@ -2,7 +2,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import classes from "./SliderProds.module.css";
 
-const SliderProds = ({ data }) => {
+const SliderProds = ({ data, n1, n2 }) => {
   return (
     <div className={classes.container}>
       <Swiper
@@ -10,7 +10,7 @@ const SliderProds = ({ data }) => {
         pagination={{ clickable: true }}
         className={classes.swiper}
       >
-        {data.slice(0, 7).map((prod) => (
+        {data.slice(n1, n2).map((prod) => (
           <SwiperSlide key={prod.ID_PRODUTO}>
             <div className={classes.slider_box}>
               <img src={prod.FOTO} alt={prod.NOME} />

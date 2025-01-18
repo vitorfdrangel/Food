@@ -56,7 +56,7 @@ const Home = () => {
           <div>
             <div>
               <h2>Mais pedidos</h2>
-              <SliderProds data={bestFilter} />
+              <SliderProds data={bestFilter} n1={3} n2={-2} />
             </div>
             <div>
               <h2>Hambúrgueres de carne bovina</h2>
