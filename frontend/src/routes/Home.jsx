@@ -18,6 +18,11 @@ import classes from "./Home.module.css";
 const Home = () => {
   const [data, setData] = useState([]);
 
+  // melhores bgs
+  const bestFilter = data.filter(
+    (item) => item.TIPO === "BG" || item.TIPO === "BG_CK"
+  );
+
   // bg bovino
   const bovFilter = data.filter((item) => item.TIPO === "BG");
 
@@ -51,7 +56,7 @@ const Home = () => {
           <div>
             <div>
               <h2>Mais pedidos</h2>
-              <SliderProds data={data} />
+              <SliderProds data={bestFilter} />
             </div>
             <div>
               <h2>Hambúrgueres de carne bovina</h2>
