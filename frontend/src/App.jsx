@@ -1,4 +1,5 @@
 // components
+import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 // slider
@@ -20,6 +21,7 @@ function App() {
   return (
     <>
       <ToastContainer />
+      <Navbar />
       <Outlet />
       <Footer />
     </>

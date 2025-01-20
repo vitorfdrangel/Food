@@ -1,6 +1,3 @@
-// components
-import Navbar from "../components/Navbar.jsx";
-
 // hooks
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -9,6 +6,7 @@ import {
   useClearProductsLs,
 } from "../hooks/useLocalStorage.jsx";
 import useToast from "../hooks/useToast.jsx";
+import { setNavbar } from "../hooks/useEvent.jsx";
 
 // api
 import api from "../services/api.js";
@@ -21,6 +19,9 @@ const Checkout = () => {
   const [totalCart, setTotalCart] = useState();
   const [money, setMoney] = useState(false);
   const [troco, setTroco] = useState(false);
+
+  // esconder menu navbar
+  setNavbar("close");
 
   // validar somente números
   const numValidator = (e) => {
@@ -105,7 +106,6 @@ const Checkout = () => {
 
   return (
     <>
-      <Navbar showMenu={false} />
       <div className={classes.checkout_container}>
         <h1>Finalizar Pedido</h1>
 
