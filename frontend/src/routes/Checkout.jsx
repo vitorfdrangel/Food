@@ -17,8 +17,10 @@ import classes from "./Checkout.module.css";
 const Checkout = () => {
   const [dadosCart, setDadosCart] = useState([]);
   const [totalCart, setTotalCart] = useState();
-  const [money, setMoney] = useState(false);
-  const [troco, setTroco] = useState(false);
+  const [showMoney, setShowMoney] = useState(false);
+  const [payment, setPayment] = useState("");
+  const [showTroco, setShowTroco] = useState(false);
+  const [troco, setTroco] = useState("");
 
   // esconder menu navbar
   setNavbar("close");
@@ -68,7 +70,7 @@ const Checkout = () => {
   const [cidade, setCidade] = useState("");
 
   // Enviar pedido ao banco de dados
-  const sendOrder = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     const dataObj = {
@@ -80,6 +82,8 @@ const Checkout = () => {
       BAIRRO: bairro,
       CIDADE: cidade,
       TOTAL: totalCart,
+      PAGAMENTO: payment,
+      TROCO: troco,
       ITENS: dadosCart,
     };
 
@@ -89,18 +93,33 @@ const Checkout = () => {
         useClearProductsLs();
         useToast("sucesso", "Pedido enviado!");
         navigate("/");
+        window.scrollTo({ top: 0 });
       })
       .catch(() => {
         useToast("erro", "Não foi possível enviar o pedido.");
       });
   };
 
+  // setar forma de pagamento
   const handlePayment = (e) => {
     if (e.target.id == "dinheiro") {
-      setMoney(true);
+      setShowMoney(true);
+      setPayment("Dinheiro");
     } else if (e.target.id == "cartao") {
-      setMoney(false);
-      setTroco(false);
+      setShowMoney(false);
+      setShowTroco(false);
+      setTroco("");
+      setPayment("Cartão");
+    }
+  };
+
+  // setar troco
+  const handleTroco = (arg) => {
+    if (arg) {
+      setShowTroco(true);
+    } else {
+      setShowTroco(false);
+      setTroco("");
     }
   };
 
@@ -109,7 +128,7 @@ const Checkout = () => {
       <div className={classes.checkout_container}>
         <h1>Finalizar Pedido</h1>
 
-        <form onSubmit={sendOrder} className={classes.body_checkout}>
+        <form onSubmit={handleSubmit} className={classes.body_checkout}>
           <div className={classes.box_container}>
             <h2>Dados Pessoais</h2>
 
@@ -215,7 +234,7 @@ const Checkout = () => {
                 </label>
               </div>
 
-              {money && (
+              {showMoney && (
                 <div className={classes.box_troco}>
                   <p>Precisa de troco?</p>
                   <div className={classes.box_payment}>
@@ -224,7 +243,7 @@ const Checkout = () => {
                         type="radio"
                         name="troco"
                         id="sim"
-                        onClick={() => setTroco(true)}
+                        onClick={() => handleTroco(true)}
                       />
                       <span>Sim</span>
                     </label>
@@ -233,7 +252,7 @@ const Checkout = () => {
                         type="radio"
                         name="troco"
                         id="nao"
-                        onClick={() => setTroco(false)}
+                        onClick={() => handleTroco(false)}
                       />
                       <span>Não</span>
                     </label>
@@ -241,12 +260,14 @@ const Checkout = () => {
                 </div>
               )}
 
-              {troco && (
+              {showTroco && (
                 <div className={classes.troco}>
                   <input
                     type="text"
                     placeholder="ex: 50"
+                    maxLength={5}
                     onKeyDown={(e) => numValidator(e)}
+                    onChange={(e) => setTroco(e.target.value)}
                   />
                 </div>
               )}

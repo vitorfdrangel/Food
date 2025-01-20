@@ -20,8 +20,8 @@ routePedido.get("/pedidos", (req, res) => {
 
 // Inserindo pedido ao banco
 routePedido.post("/pedidos", (req, res) => {
-  let sql = `insert into PEDIDO(ID_USUARIO, NOME, EMAIL, FONE, ENDERECO, BAIRRO, CIDADE, TOTAL, DT_PEDIDO)
-            values(?, ?, ?, ?, ?, ?, ?, ?, current_date)
+  let sql = `insert into PEDIDO(ID_USUARIO, NOME, EMAIL, FONE, ENDERECO, BAIRRO, CIDADE, TOTAL, DT_PEDIDO, PAGAMENTO, TROCO)
+            values(?, ?, ?, ?, ?, ?, ?, ?, current_date, ?, ?)
             returning ID_PEDIDO`;
 
   let p = req.body;
@@ -37,6 +37,8 @@ routePedido.post("/pedidos", (req, res) => {
       p.BAIRRO,
       p.CIDADE,
       p.TOTAL,
+      p.PAGAMENTO,
+      p.TROCO,
     ],
     async (err, rows) => {
       if (err) {
