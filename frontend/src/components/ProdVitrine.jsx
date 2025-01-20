@@ -47,7 +47,9 @@ const ProdVitrine = () => {
         break;
 
       case "BG":
-        fProds = data.filter((item) => item.TIPO == "BG");
+        fProds = data.filter(
+          (item) => item.TIPO == "BG" || item.TIPO == "BG_CK"
+        );
         setFilteredData(fProds);
         break;
 

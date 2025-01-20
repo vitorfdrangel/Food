@@ -129,7 +129,11 @@
 
   .prod_box {
     width: 230px;
-    height: 430px;
+    height: 450px;
+  }
+
+  .prod_box h2 {
+    height: 70px;
   }
 
   .prod_box img {
@@ -139,11 +143,11 @@
 
   .description {
     margin-top: 0.4rem;
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
   .price {
-    padding-top: 3.5rem;
+    padding-top: 2.4rem;
   }
 
   .prod_box button {

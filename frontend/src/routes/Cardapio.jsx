@@ -1,13 +1,15 @@
 // components
-import Navbar from "../components/Navbar.jsx";
 import ProdVitrine from "../components/ProdVitrine.jsx";
+
+import { setNavbar } from "../hooks/useEvent.jsx";
 
 import classes from "./Cardapio.module.css";
 
 const Cardapio = () => {
+  // mostrar menu navbar
+  setNavbar("show");
   return (
     <>
-      <Navbar showMenu={true} />
       <div className={classes.cardapio_container}>
         <h1 className={classes.title}>Nosso Cardápio</h1>
         <p className={classes.subtitle}>
