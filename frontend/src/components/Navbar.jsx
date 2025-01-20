@@ -10,16 +10,36 @@ import logo from "../images/logo.png";
 import classes from "./Navbar.module.css";
 import { MdOutlineShoppingBag } from "react-icons/md";
 
-const Navbar = ({ showMenu }) => {
+const Navbar = () => {
   const [openSidebar, setOpenSidebar] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [navbarStyle, setNavbarStyle] = useState(classes.navbar_container);
+
+  // show
+  document.addEventListener("showNavbar", () => {
+    setShowNavbar(true);
+  });
+
+  // close
+  document.addEventListener("closeNavbar", () => {
+    setShowNavbar(false);
+  });
+
+  document.addEventListener("scroll", () => {
+    if (scrollY > 0) {
+      setNavbarStyle(classes.navbar_container_mv);
+    } else {
+      setNavbarStyle(classes.navbar_container);
+    }
+  });
 
   return (
-    <div className={classes.navbar_container}>
+    <div className={navbarStyle}>
       <Link to={"/"} className={classes.logo}>
         <img src={logo} alt="Logotipo" />
       </Link>
 
-      {showMenu && (
+      {showNavbar && (
         <div className={classes.menu}>
           <Link to={"/"}>Início</Link>
           <Link to={"/cardapio"}>Cardápio</Link>

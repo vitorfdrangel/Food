@@ -1,11 +1,11 @@
 // components
-import Navbar from "../components/Navbar.jsx";
 import Slider from "../components/Slider.jsx";
 import SliderProds from "../components/SliderProds.jsx";
 
 //hooks
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { setNavbar } from "../hooks/useEvent.jsx";
 
 import { GrLinkNext } from "react-icons/gr";
 import { BiLoaderCircle } from "react-icons/bi";
@@ -17,6 +17,9 @@ import classes from "./Home.module.css";
 
 const Home = () => {
   const [data, setData] = useState([]);
+
+  // mostrar menu navbar
+  setNavbar("show");
 
   // melhores bgs
   const bestFilter = data.filter(
@@ -47,7 +50,6 @@ const Home = () => {
 
   return (
     <>
-      <Navbar showMenu={true} />
       <div className={classes.home_container}>
         <Slider />
 
