@@ -1,12 +1,37 @@
+import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import classes from "./SliderProds.module.css";
 
 const SliderProds = ({ data, n1, n2 }) => {
+  const [slidePV, setSlidePV] = useState(4);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setSlidePV(1);
+      } else if (window.innerWidth < 1200) {
+        setSlidePV(2);
+      } else if (window.innerWidth < 1450) {
+        setSlidePV(3);
+      } else {
+        setSlidePV(4);
+      }
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <div className={classes.container}>
       <Swiper
-        slidesPerView={4}
+        slidesPerView={slidePV}
         pagination={{ clickable: true }}
         className={classes.swiper}
       >

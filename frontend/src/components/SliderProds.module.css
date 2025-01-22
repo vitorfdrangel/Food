@@ -1,7 +1,6 @@
 .container {
   width: 100%;
   margin: 0 auto;
-  display: inline-block;
 }
 
 .swiper {
@@ -12,7 +11,7 @@
 .slider_box {
   width: 250px;
   height: 340px;
-  margin: 0 1rem;
+  margin: 0 auto;
   padding: 10px 20px;
   border: 3px solid #e9e9e9;
   border-radius: 1rem;
@@ -36,4 +35,30 @@
   padding: 0 10px;
   font-size: 1rem;
   color: #acacac;
+}
+
+/*responsividade  */
+
+/* tablet */
+@media (min-width: 768px) {
+  .swiper {
+    min-width: 650px;
+    max-width: 800px;
+  }
+}
+
+/* pc */
+@media (min-width: 1200px) {
+  .swiper {
+    min-width: 1000px;
+    max-width: 1450px;
+  }
+}
+
+/* pc tela grande */
+@media (min-width: 1450px) {
+  .swiper {
+    min-width: 1400px;
+    max-width: 1700px;
+  }
 }

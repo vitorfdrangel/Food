@@ -33,16 +33,24 @@ const Navbar = () => {
     }
   });
 
+  const goUp = () => {
+    window.scrollTo({ top: 0 });
+  };
+
   return (
     <div className={navbarStyle}>
-      <Link to={"/"} className={classes.logo}>
+      <Link to={"/"} onClick={goUp} className={classes.logo}>
         <img src={logo} alt="Logotipo" />
       </Link>
 
       {showNavbar && (
         <div className={classes.menu}>
-          <Link to={"/"}>Início</Link>
-          <Link to={"/cardapio"}>Cardápio</Link>
+          <Link to={"/"} onClick={goUp}>
+            Início
+          </Link>
+          <Link to={"/cardapio"} onClick={goUp}>
+            Cardápio
+          </Link>
           <button className="btn btn-red" onClick={() => setOpenSidebar(true)}>
             <MdOutlineShoppingBag />
             <p>Sacola</p>
