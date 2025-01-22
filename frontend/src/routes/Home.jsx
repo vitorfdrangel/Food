@@ -70,9 +70,11 @@ const Home = () => {
             </div>
           </div>
         )}
-        <Link to={"/cardapio"} onClick={goUp}>
-          Confira nosso cardápio <GrLinkNext />
-        </Link>
+        {data.length !== 0 && (
+          <Link to={"/cardapio"} onClick={goUp}>
+            Confira nosso cardápio <GrLinkNext />
+          </Link>
+        )}
       </div>
     </>
   );
