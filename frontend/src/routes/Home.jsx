@@ -55,7 +55,7 @@ const Home = () => {
 
         {data.length === 0 && <BiLoaderCircle className={classes.spinner} />}
         {data.length !== 0 && (
-          <div>
+          <div className={classes.prod_container}>
             <div>
               <h2>Mais pedidos</h2>
               <SliderProds data={bestFilter} n1={3} n2={-2} />
@@ -70,9 +70,11 @@ const Home = () => {
             </div>
           </div>
         )}
-        <Link to={"/cardapio"} onClick={goUp}>
-          Confira nosso cardápio <GrLinkNext />
-        </Link>
+        {data.length !== 0 && (
+          <Link to={"/cardapio"} onClick={goUp}>
+            Confira nosso cardápio <GrLinkNext />
+          </Link>
+        )}
       </div>
     </>
   );

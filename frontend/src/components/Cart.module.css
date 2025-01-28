@@ -73,6 +73,7 @@
 
 .qtd_btn .gray {
   color: #d8d8d8;
+  cursor: default;
 }
 
 .cart_container .product_price {
