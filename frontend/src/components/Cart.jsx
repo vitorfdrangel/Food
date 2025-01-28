@@ -52,6 +52,8 @@ const Cart = ({ openSidebar, setOpenSidebar }) => {
   const finalizeOrder = () => {
     navigate("/checkout");
 
+    window.scrollTo({ top: 0 });
+
     setOpenSidebar(false);
   };
 

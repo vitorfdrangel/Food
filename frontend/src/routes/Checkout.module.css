@@ -1,5 +1,5 @@
 .checkout_container {
-  padding: 8rem 4rem 3rem;
+  padding: 8rem 1.5rem 3rem;
 }
 
 .checkout_container h1 {
@@ -17,6 +17,7 @@
 
 .box_container {
   width: 100%;
+  max-width: 500px;
   min-height: 150px;
   margin-bottom: 1.5rem;
   padding: 1.2rem 1rem;
