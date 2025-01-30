@@ -1,11 +1,8 @@
-<!-- Titulo -->
 <center>
     <img src="./frontend/src/images/logo.png" alt="Logo Food" > 
 </center>
 
 ## Um site para delívery de lanches
-
-<!-- tecnologias -->
 
 ### Tecnologias
 
