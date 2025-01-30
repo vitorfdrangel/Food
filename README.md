@@ -1,5 +1,5 @@
 <!-- Titulo -->
-<center><img src="./frontend/src/images/logo.png" alt="Logo Food" ></center>
+<img src="./frontend/src/images/logo.png" alt="Logo Food" style="display: flex, justify-content: center" >
 
 ## Um site para delívery de lanches
 
