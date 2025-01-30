@@ -2,8 +2,6 @@
     <img src="./frontend/src/images/logo.png" alt="Logo Food" > 
 </center>
 
-<a href="https://github.com/vitorfdrangel/Food/?tab=readme-ov-file#como-executar"> How to use</a>
-
 ## Um site para delívery de lanches
 
 ### Tecnologias
