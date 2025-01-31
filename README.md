@@ -76,7 +76,7 @@ npm run dev
 1. Vá ao cardápio e escolha o que você vai comer
 2. Filtre por categorias, como Bebidas, Sobremesas, Acompanhamentos, etc
 3. Abra a Sacola e confira seu pedido. Acrescente ou retire algum pedido, se desejar
-4. Vá à página de Checkout e preencha suas informações, como Nome, Email, Endereço, Número para contato, etc
+4. Vá à página de Checkout e preencha suas informações, como Nome, Email, Endereço, Número para contato...
 5. Escolha a forma de pagamento. Se for dinheiro, clique em troco e para quanto, caso precise
 6. Pronto! Pedido finalizado
 
