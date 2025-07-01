@@ -41,6 +41,7 @@ const Home = () => {
       })
       .catch((err) => {
         alert("Erro ao carregar produtos");
+        console.log(err);
       });
   }, []);
 
