@@ -73,6 +73,7 @@ npm run dev
 4. Utilize o site
 
 ## Preview do site
+
 1. Vá ao cardápio e escolha o que você vai comer
 2. Filtre por categorias, como Bebidas, Sobremesas, Acompanhamentos, etc
 3. Abra a Sacola e confira seu pedido. Acrescente ou retire algum pedido, se desejar
@@ -83,4 +84,3 @@ npm run dev
 ![Image](https://github.com/user-attachments/assets/1a5cef3e-a1cd-4ab6-a001-ddfe6ece4146)
 
 ### Acesse o site: [https://vrlfood.vercel.app/](https://vrlfood.vercel.app/)
-
