@@ -13,5 +13,5 @@ app.use(routeProduto);
 app.use(routePedido);
 
 app.listen(3000, () => {
-  console.log("Servidor online!");
+  console.log("Servidor online na porta 3000");
 });
