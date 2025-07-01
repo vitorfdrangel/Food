@@ -83,4 +83,4 @@ npm run dev
 
 ![Image](https://github.com/user-attachments/assets/1a5cef3e-a1cd-4ab6-a001-ddfe6ece4146)
 
-### Acesse o site: [https://vrlfood.vercel.app/](https://vrlfood.vercel.app/)
+### Acesse o site: [https://vrl-food.vercel.app//](https://vrl-food.vercel.app//)
