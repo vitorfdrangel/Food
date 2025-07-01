@@ -4,7 +4,7 @@ import classes from "./Footer.module.css";
 const Footer = () => {
   return (
     <div className={classes.footer_container}>
-      <p>&copy; RL Developement (2024)</p>
+      <p>&copy; VRL Development (2025)</p>
     </div>
   );
 };
